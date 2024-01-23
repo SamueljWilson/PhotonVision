@@ -45,8 +45,9 @@ public class CameraTest extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Optional<EstimatedRobotPose> robotPoseEstimator = m_photonCameras.getFieldRelativePoseEstimators().get(0);
+    // Optional<EstimatedRobotPose> robotPoseEstimator = m_photonCameras.getFieldRelativePoseEstimators().get(0);
     for (int i=0; i<m_photonCameras.getFieldRelativePoseEstimators().size(); i++) {
+      Optional<EstimatedRobotPose> robotPoseEstimator = m_photonCameras.getFieldRelativePoseEstimators().get(i);
       if (!robotPoseEstimator.isEmpty()) {
         String formattedString = String.format("Estimated Pose for Cam %d", i+1);
         m_poseEstimator.addVisionMeasurement(robotPoseEstimator.get().estimatedPose.toPose2d(), robotPoseEstimator.get().timestampSeconds);
