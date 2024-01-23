@@ -51,7 +51,7 @@ public class CameraTest extends Command {
       if (!robotPoseEstimator.isEmpty()) {
         String formattedString = String.format("Estimated Pose for Cam %d", i+1);
         m_poseEstimator.addVisionMeasurement(robotPoseEstimator.get().estimatedPose.toPose2d(), robotPoseEstimator.get().timestampSeconds);
-        SmartDashboard.putString(formattedString, robotPoseEstimator.get().estimatedPose.getTranslation().toString() + " | Rotation: " + Math.toDegrees(robotPoseEstimator.get().estimatedPose.getRotation().getAngle()*Math.PI));
+        SmartDashboard.putString(formattedString, robotPoseEstimator.get().estimatedPose.getTranslation().toString() + " | Rotation: " + Math.toDegrees(robotPoseEstimator.get().estimatedPose.getRotation().getAngle()));
       }
     }
 
